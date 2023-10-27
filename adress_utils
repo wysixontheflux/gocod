@@ -1,0 +1,105 @@
+============================  Envoie donnée vers master server activison : =========================
+             sub_80dfe34:
+080dfe34         cmp        al, byte [eax]                                      ; DATA XREF=sub_8092267+85
+080dfe36         add        byte [eax], al
+080dfe38         add        byte [eax], al
+080dfe3a         add        byte [eax], al
+080dfe3c         add        byte [eax], al
+080dfe3e         add        byte [eax], al
+                        ; endp
+             aCodmasteractiv_80dfe40:        // aCodmasteractiv
+080dfe40         db         "codmaster.activision.com resolved to %i.%i.%i.%i:%i\n", 0 ; DATA XREF=sub_8092267+183
+080dfe75         align      128
+             aSendingHeartbe:
+080dfe80         db         "Sending heartbeat to codmaster.activision.com\n", 0 ; DATA XREF=sub_8092331+78
+             aHeartbeatSn:
+080dfeaf         db         "heartbeat %s\n", 0                                 ; DATA XREF=sub_8092331+97
+080dfebd         align      64
+             aSendingGamecom:
+080dfec0         db         "Sending gameCompleteStatus to codmaster.activision.com\n", 0 ; DATA XREF=sub_8092422+42
+             aFlatline:
+080dfef8         db         "flatline", 0                                       ; DATA XREF=sub_8092483+16
+             aChallenge:
+080dff01         db         "challenge", 0                                      ; DATA XREF=sub_80924ee+65, sub_80928c8+55, sub_8092b7f+23
+             aFsrestrict:
+080dff0b         db         "fs_restrict", 0                                    ; DATA XREF=sub_80924ee+87, sub_80928c8+77
+             aSvkeywords:
+080dff17         db         "sv_keywords", 0                                    ; DATA XREF=sub_80924ee+114, sub_80924ee+180, sub_80928c8+104, sub_80928c8+170
+             aDemoS:
+080dff23         db         "demo %s", 0                                        ; DATA XREF=sub_80924ee+140, sub_80928c8+130
+             aIISn:
+080dff2b         db         "%i %i \"%s\"\n", 0                                 ; DATA XREF=sub_80924ee+361, sub_80928c8+351
+080dff37         db  0x25 ; '%'                                                 ; DATA XREF=sub_80926d7+23, sub_80926d7+382, sub_8092b7f+53, sub_8092b7f+172, sub_8092b7f+252, sub_8092b7f+347, sub_8092b7f+408, sub_8092b7f+469, sub_8092b7f+588, sub_8092b7f+888, sub_8092b7f+938
+080dff38         db  0x69 ; 'i'
+080dff39         db  0x00 ; '.'
+             aCondisabled:
+080dff3a         db         "con_disabled", 0                                   ; DATA XREF=sub_80926d7+39
+             aGpassword:
+080dff47         db         "g_password", 0                                     ; DATA XREF=sub_80926d7+61, sub_8092b7f+626
+
+
+================    variable du serveur ( information côté serveur ) =========================
+
+             sub_80dff52:
+080dff52         xor        dword [eax], eax                                    ; DATA XREF=sub_80926d7+99, sub_8092b7f+655
+                        ; endp
+             aPswrd:
+080dff54         db         "pswrd", 0                                          ; DATA XREF=sub_80926d7+107, sub_80926d7+139, sub_8092b7f+663
+
+             sub_80dff5a:
+080dff5a         xor        byte [eax], al                                      ; DATA XREF=sub_80926d7+131, sub_8094321+29
+                        ; endp
+             aFsgame:
+080dff5c         db         "fs_game", 0                                        ; DATA XREF=sub_80926d7+161, sub_8092b7f+507
+             aSvreferencedpa:
+080dff64         db         "sv_referencedPakNames", 0                          ; DATA XREF=sub_80926d7+227, sub_8092b7f+1015
+             aMain:
+080dff7a         db         "main", 0                                           ; DATA XREF=sub_80926d7+330, sub_8092b7f+1103
+
+             sub_80dff7f:
+080dff7f         insd       dword [edi], dx                                     ; DATA XREF=sub_80926d7+398, sub_8092b7f+1168
+080dff80         outsd      dx, dword [esi]
+                        ; endp
+080dff81         db  0x64 ; 'd'
+080dff82         db  0x00 ; '.'
+             aStatusresponse:
+080dff83         db         "statusResponse\n%s\n%s", 0                         ; DATA XREF=sub_80926d7+440
+             aGamecompletest:
+080dff98         db         "gameCompleteStatus\n%s\n%s", 0                     ; DATA XREF=sub_8092aa7+20
+             aProtocol:
+080dffb1         db         "protocol", 0                                       ; DATA XREF=sub_8092b7f+69
+             aHostname:
+080dffba         db         "hostname", 0                                       ; DATA XREF=sub_8092b7f+103
+             aMapname:
+080dffc3         db         "mapname", 0                                        ; DATA XREF=sub_8092b7f+137
+             aClients:
+080dffcb         db         "clients", 0                                        ; DATA XREF=sub_8092b7f+188
+             aSvmaxclients:
+080dffd3         db         "sv_maxclients", 0                                  ; DATA XREF=sub_8092b7f+268
+             aGametype:
+080dffe1         db         "gametype", 0                                       ; DATA XREF=sub_8092b7f+302
+             aPure:
+080dffea         db         "pure", 0                                           ; DATA XREF=sub_8092b7f+363
+             aMinping:
+080dffef         db         "minPing", 0                                        ; DATA XREF=sub_8092b7f+424
+             aMaxping:
+080dfff7         db         "maxPing", 0                                        ; DATA XREF=sub_8092b7f+485
+             aGame:
+080dffff         db         "game", 0                                           ; DATA XREF=sub_8092b7f+543
+             aSvallowanonymo:
+080e0004         db         "sv_allowAnonymous", 0                              ; DATA XREF=sub_8092b7f+604
+             aScrfriendlyfir:
+080e0016         db         "scr_friendlyfire", 0                               ; DATA XREF=sub_8092b7f+685
+080e0027         db  0x66 ; 'f'                                                 ; DATA XREF=sub_8092b7f+728
+080e0028         db  0x66 ; 'f'
+080e0029         db  0x00 ; '.'
+             aScrkillcam:
+080e002a         db         "scr_killcam", 0                                    ; DATA XREF=sub_8092b7f+750
+080e0036         db  0x6b ; 'k'                                                 ; DATA XREF=sub_8092b7f+793
+
+
+
+go build -o mylib.so -buildmode=c-shared mylib.go
+LD_PRELOAD=./mylib.so ./cod_lnxded
+
+
